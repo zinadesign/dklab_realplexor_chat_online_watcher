@@ -49,7 +49,7 @@ case "$1" in
             log_failure "already running"
             exit 1
         fi
-		if python $DAEMON -d ; then
+		if python $DAEMON --daemon ; then
             log_success "started"
 		else
             log_failure "failed"
