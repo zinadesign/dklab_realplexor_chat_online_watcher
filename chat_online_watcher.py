@@ -10,6 +10,7 @@ import logging
 import atexit
 from realplexor import Dklab_Realplexor, Dklab_Realplexor_Exception
 
+
 def daemonize(pidfile):
     """Deamonize class. UNIX double fork mechanism."""
     try:
@@ -55,6 +56,7 @@ def daemonize(pidfile):
     pid = str(os.getpid())
     with open(pidfile, 'w+') as f:
         f.write(pid + '\n')
+
 
 def watch_status(config, log, daemon):
     print(daemon)

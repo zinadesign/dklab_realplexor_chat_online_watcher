@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          chat_online_watcher
+# Provides:          dklab_realplexor_chat_online_watcher
 # Required-Start:    $network $syslog $local_fs
 # Required-Stop:     $network $syslog $local_fs
 # Should-Start:      $local_fs
@@ -49,7 +49,7 @@ case "$1" in
             log_failure "already running"
             exit 1
         fi
-		if $DAEMON -d ; then
+		if python $DAEMON -d ; then
             log_success "started"
 		else
             log_failure "failed"
