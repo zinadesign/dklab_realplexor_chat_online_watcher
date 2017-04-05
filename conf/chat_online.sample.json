@@ -1,0 +1,18 @@
+{
+  "production_": {
+    "host": "127.0.0.1",
+    "port": 10011,
+    "identifier": "identifier",
+    "id_prefix": "id_",
+    "online_channel": "who_is_online",
+    "site": "site_name"
+  },
+  "beta_": {
+    "host": "127.0.0.1",
+    "port": 10011,
+    "identifier": "identifier",
+    "id_prefix": "id_",
+    "online_channel": "who_is_online",
+    "site": "site_name"
+  }
+}

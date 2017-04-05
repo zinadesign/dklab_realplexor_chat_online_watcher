@@ -1,0 +1,10 @@
+/venv/
+.idea/*
+*.pyc
+*.lock
+nohup.out
+*.py[co]
+*~
+/*.log
+/test/data
+/conf/chat_online.json
