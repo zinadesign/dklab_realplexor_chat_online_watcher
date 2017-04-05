@@ -37,17 +37,6 @@ def daemonize(pidfile):
         sys.stderr.write('fork #2 failed: {0}\n'.format(err))
         sys.exit(1)
 
-    # redirect standard file descriptors
-    sys.stdout.flush()
-    sys.stderr.flush()
-    si = open(os.devnull, 'r')
-    so = open(os.devnull, 'a+')
-    se = open(os.devnull, 'a+')
-
-    os.dup2(si.fileno(), sys.stdin.fileno())
-    os.dup2(so.fileno(), sys.stdout.fileno())
-    os.dup2(se.fileno(), sys.stderr.fileno())
-
     def delpid():
         os.remove(pidfile)
     # write pidfile
