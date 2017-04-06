@@ -71,7 +71,7 @@ def watch_status(config, log, daemon):
     while True:
         for connection in realplexor_connections:
             try:
-                for event in connection.cmdWatch(connection.pos, connection.id_prefix):
+                for event in connection.cmdWatch(connection.pos, [connection.id_prefix]):
                     try:
                         user_id = event['id'].split(connection.id_prefix)[1]
                     except IndexError:
@@ -80,9 +80,9 @@ def watch_status(config, log, daemon):
                     connection.pos = event['pos']
                     if event['event'] == 'FAKE':
                         continue
-                    connection.send(connection.online_channel, json.dumps({
+                    connection.send({connection.online_channel}, json.dumps([{
                         'status': event['event'], 'id': user_id
-                    }))
+                    }]))
             except Dklab_Realplexor_Exception as e:
                 logging.error(str(e))
 
